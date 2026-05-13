@@ -1,0 +1,19 @@
+# IDE
+.idea/
+.vscode/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Data 
+data/UserBehavior.csv
+
+# Output tables 
+output/tables/*.csv
+
+# 其他临时文件
+*.log
+.DS_Store
