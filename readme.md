@@ -175,6 +175,7 @@
 
 ## 项目结构
 
+```
 - data/               # 原始数据（需自行下载 UserBehavior.csv）
 - output/
   - tables/           # 中间表（purchase_data.csv）
@@ -190,6 +191,7 @@
 - .gitignore
 - requirements.txt
 - README.md           # 本文件
+```
 
 ## 如何运行
 
