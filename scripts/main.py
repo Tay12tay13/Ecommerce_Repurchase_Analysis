@@ -96,15 +96,17 @@ def main():
     plot_repurchase_interval(intervals_all)
 
     # 5.5 商品类目分析（整体复购率 + 当日复购率）
+    # 5.5 商品类目分析（整体复购率 + 当日复购率）
     print("\n=== 商品类目整体复购率分析 ===")
     cat_rep = category_repurchase_rate(purchase, min_users=50)
     print(cat_rep.head(10))
-    plot_top_categories(cat_rep, title='整体复购率最高的类目')
+    plot_top_categories(cat_rep, title='整体复购率最高的类目', filename='top_categories.png')
 
     print("\n=== 商品类目当日复购率分析（核心） ===")
     cat_same = category_same_day_repurchase_rate(purchase, min_users=30)
     print(cat_same.head(10))
-    plot_top_categories(cat_same, top_n=10, title='当日复购率最高的类目', value_col='same_day_rate')
+    plot_top_categories(cat_same, top_n=10, title='当日复购率最高的类目', value_col='same_day_rate',
+                        filename='same_day_top_categories.png')
 
     print("\n分析完成！")
 

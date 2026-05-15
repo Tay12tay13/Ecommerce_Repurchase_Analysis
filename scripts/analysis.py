@@ -156,15 +156,17 @@ def category_same_day_repurchase_rate(purchase, min_users=30):
     cat_same = cat_same[cat_same['total_users'] >= min_users]
     return cat_same.sort_values('same_day_rate', ascending=False)
 
-def plot_top_categories(cat_rep, top_n=10, title='复购率最高的类目', value_col='repurchase_rate'):
+def plot_top_categories(cat_rep, top_n=10, title='整体复购率最高的类目', value_col='repurchase_rate', filename='top_categories.png'):
     top = cat_rep.head(top_n)
     plt.figure(figsize=(10,6))
     plt.barh(top.index.astype(str), top[value_col])
     plt.gca().invert_yaxis()
     plt.title(title)
-    plt.xlabel('复购率')
+    plt.xlabel('复购率' if value_col == 'repurchase_rate' else '当日复购率')
     plt.tight_layout()
-    plt.savefig(os.path.join(FIGURES_DIR, 'top_categories.png'), dpi=150)
+    save_path = os.path.join(FIGURES_DIR, filename)
+    plt.savefig(save_path, dpi=150, bbox_inches='tight')
+    print(f"图表已保存至 {save_path}")
     plt.show()
 
 # ---------- 购买间隔分布图 ----------
